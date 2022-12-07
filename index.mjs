@@ -33,8 +33,9 @@ async function getResponse(path) {
   const playBtn = "#index-play-btn"
   const pickImg = "img[src='https://shadow-h5-prd-1251316161.file.myqcloud.com/oss/1/choose_2.png']"
   const processAPI = "https://ai.tu.qq.com/trpc.shadow_cv.ai_processor_cgi.AIProcessorCgi/Process"
+  let page
   try {
-    const page = await browser.newPage()
+    page = await browser.newPage()
     await page.goto('https://h5.tu.qq.com/web/ai-2d/cartoon/index')
     await page.waitForSelector(playBtn)
     await page.click(playBtn)
@@ -56,7 +57,7 @@ async function getResponse(path) {
     await page.close()
     return response
   } catch(e) {
-    await page.close()
+    page.close()
     throw e
   }
 }

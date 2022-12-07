@@ -5,6 +5,7 @@ Self-Host DifferentDimensionMe API Using Puppeteer &amp; Express
 Features:
 
 + Support System Proxy using [https-proxy-agent](https://www.npmjs.com/package/https-proxy-agent)
++ Good Asynchronous Concurrent Compability Thanks To JavaScirpt
 
 Examples:
 

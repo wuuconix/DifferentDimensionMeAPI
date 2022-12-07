@@ -46,12 +46,17 @@ async function getResponse(path) {
     ])
     console.log(fileChooser)
     await fileChooser.accept([path])
-    await page.waitForResponse(processAPI) //preFlightResponse
-    const response = await (await page.waitForResponse(processAPI)).json()
+    let response = await page.waitForResponse(processAPI)
+    if (response.request().method() == "POST") { //without preflight
+      response = await response.json()
+    } else { //with preflight
+      response = await (await page.waitForResponse(processAPI)).json()
+    }
     console.log(response)
     await page.close()
     return response
   } catch(e) {
+    await page.close()
     throw e
   }
 }

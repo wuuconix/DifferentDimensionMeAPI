@@ -49,6 +49,7 @@ async function getResponse(path) {
     await page.waitForResponse(processAPI) //preFlightResponse
     const response = await (await page.waitForResponse(processAPI)).json()
     console.log(response)
+    await page.close()
     return response
   } catch(e) {
     throw e
@@ -71,6 +72,7 @@ app.get('/', async (req, res) => {
       res.json(response)
       deleteImg(path)
     } catch(e) {
+      console.log(e.toString())
       res.json({ error: e.toString() })
     }
   } else {

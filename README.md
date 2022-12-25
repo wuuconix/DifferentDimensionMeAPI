@@ -1,6 +1,6 @@
 # DifferentDimensionMeAPI
 
-Self-Host DifferentDimensionMe API Using Puppeteer &amp; Express
+Self-Host DifferentDimensionMe API Using Express
 
 Features:
 
@@ -26,3 +26,8 @@ The response are as follows in this test:
 ![image](https://tva2.sinaimg.cn/large/007YVyKcly1h8v9ubw2hej31bs08ewv0.jpg)
 
 [![](https://activity.tu.qq.com/mqq/ai_painting_anime/image/d20cbbc897da7e2c47370384e0588ef0_2aigp.jpg)](https://activity.tu.qq.com/mqq/ai_painting_anime/image/d20cbbc897da7e2c47370384e0588ef0_2aigp.jpg)
+
+Special Thanks:
+
+Thanks to [IvanNazaruk](https://github.com/IvanNazaruk) who reverse engineering tencent api, find the way of generate X-Sign-Value. Reference: https://github.com/IvanNazaruk/DifferentDimensionMe-GUI/commit/99cbd27c313221935527056eb74102adf3755f70
+

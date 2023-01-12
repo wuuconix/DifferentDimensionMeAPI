@@ -14,26 +14,22 @@ function _getXSignValue(payload) {
 }
 
 async function ai(url) {
-  try {
-    let res = await fetch(url, fetchOptions)
-    const buffer = await res.arrayBuffer()
-    const base64 = Buffer.from(buffer).toString("base64")
-    const payload = { busiId: "ai_painting_anime_img_entry", images: [base64], extra: `{\"face_rects\":[],\"version\":2,\"platform\":\"web\",\"data_report\":{\"parent_trace_id\":\"${uuidv4()}\",\"root_channel\":\"qq_sousuo\",\"level\":0}}` }
-    console.log(payload)
-    res = await (await fetch("https://ai.tu.qq.com/trpc.shadow_cv.ai_processor_cgi.AIProcessorCgi/Process", {
-      method: "post",
-      body: JSON.stringify(payload),
-      headers: { 
-        "Content-Type": "application/json",
-        "X-Sign-Value": _getXSignValue(payload),
-        "X-Sign-Version": "v1",
-        "Origin": "https://h5.tu.qq.com"
-      }
-    })).json()
-    return res
-  } catch(e) {
-    throw e
-  }
+  let res = await fetch(url, fetchOptions)
+  const buffer = await res.arrayBuffer()
+  const base64 = Buffer.from(buffer).toString("base64")
+  const payload = { busiId: "different_dimension_me_img_entry", images: [base64], extra: `{\"face_rects\":[],\"version\":2,\"platform\":\"web\",\"data_report\":{\"parent_trace_id\":\"${uuidv4()}\",\"root_channel\":\"qq_sousuo\",\"level\":0}}` }
+  console.log(payload)
+  res = await (await fetch("https://ai.tu.qq.com/trpc.shadow_cv.ai_processor_cgi.AIProcessorCgi/Process", {
+    method: "post",
+    body: JSON.stringify(payload),
+    headers: { 
+      "Content-Type": "application/json",
+      "X-Sign-Value": _getXSignValue(payload),
+      "X-Sign-Version": "v1",
+      "Origin": "https://h5.tu.qq.com"
+    }
+  })).json()
+  return res
 }
 
 const app = express()
